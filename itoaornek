@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+*
+*/
+void sifreligiris(); //sifreligiris fonk.unu bildirdim
+int main(void) {
+
+sifreligiris();
+return (EXIT_SUCCESS);
+}
+
+void sifreligiris(){ //sifreli giris fonk.unu tanımladım
+char gercek_sifre[12]=”sifreniziburayayazin”; //gercek sifreyi olusturdum
+char sifre[12]={0}; // kullaniciden alicagim sifreyi saklaycağım stringi oluşturdum
+char gercek_kullaniciadi[11]=”kulanici-adinizi-buraya-yazin”;
+char kullaniciadi[11]={0};  //burdaki diziler sizin kullanici adina ve sifresine cabucak erismeniz için oluşturuldu.Hata kontrolu için vs.
+int sonuc1=2;
+int sonuc2=2;
+
+printf(“Kullanici adi:”);
+scanf(“%s”,kullaniciadi);
+printf(“Sifre :”);
+scanf(“%s”,sifre);
+
+sonuc1=strcmp(sifre,”sifreniziburayayazin”);
+sonuc2=strcmp(kullaniciadi,”kulanici-adinizi-buraya-yazin”);
+
+if(sonuc1==0 && sonuc2==0){
+printf(“Hos geldiniz %s \n”,kullaniciadi);
+}
+else {
+printf(“kullanci adi veya sifre hatali\n”);
+sifreligiris(); //hataii durumunda tekrar denemesi için yapıldı
+}
+
+}
